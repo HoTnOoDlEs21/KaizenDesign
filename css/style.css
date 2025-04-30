@@ -1,0 +1,512 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: MontserratBold;
+    src: url(../fonts/Montserrat-Bold.ttf);
+}
+
+@font-face {
+    font-family: MontserratRegular;
+    src: url(../fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: MontserratLight;
+    src: url(../fonts/Montserrat-Light.ttf);
+}
+
+body {
+    font-family: MontserratRegular;
+    color: rgb(29, 47, 56);
+}
+/*----Header----*/
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #4b6382;
+    max-width: 100%;
+    height: auto;
+}
+
+#kaizen_logo {
+    max-width: 250px;
+}
+/*----Navbar----*/
+
+nav {
+    font-family: MontserratRegular;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-custom {
+    background: rgb(222, 208, 185);
+    background: linear-gradient(
+        90deg,
+        rgba(222, 208, 185, 1) 25%,
+        rgba(75, 99, 130, 1) 100%
+    );
+}
+
+.navbar-brand {
+    font-family: MontserratBold;
+    color: rgb(29, 47, 56);
+}
+
+a.nav-link:hover {
+    color: white;
+}
+
+.nav-link.active {
+    font-family: MontserratBold;
+    color: rgb(3, 112, 187) !important;
+}
+
+/* ----- Login/Registo ----- */
+
+#login-btn {
+    width: 50%;
+}
+
+.formulario p {
+    font-size: 14px;
+}
+
+#signup-info {
+    font-size: 0.7rem;
+    color: darkred;
+}
+
+/*----Main----*/
+h1,
+h2 {
+    font-family: MontserratBold;
+    letter-spacing: -1px;
+}
+
+#intro-text {
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    background-color: #4b6382;
+    border-radius: 15px;
+    color: white;
+}
+
+.btn:hover {
+    border-color: #4b6382;
+    color: #4b6382;
+    box-shadow: 0px 0px 10px rgba(75, 99, 130, 0.5);
+}
+
+/*----Aside----*/
+
+#aside {
+    background-color: rgb(240, 240, 240);
+    padding-bottom: 15px;
+}
+
+aside h4 {
+    font-family: MontserratBold;
+    padding: 15px 0 0 0;
+    text-align: center;
+    font-size: 20px;
+}
+
+.list-group {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.list-group-item {
+    border-top: 1px solid rgb(187, 187, 187);
+    border-bottom: 1px solid rgb(187, 187, 187);
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
+    background-color: rgb(222, 208, 185);
+}
+
+.list-group-item:hover {
+    background-color: white;
+}
+
+.list-group-item img {
+    max-width: 100px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.list-group-item h5 {
+    font-size: 0.9rem;
+}
+
+/* ----- Noticias Empresa ----- */
+
+.company-news-img {
+    margin-bottom: 10px;
+    border-radius: 15px;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+#selectedNewsBox {
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.company-news-img,
+.company-news-caption {
+    cursor: pointer;
+}
+
+/*----Services----*/
+
+.subtitle {
+    font-size: 16px;
+}
+
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card-title {
+    font-size: 20px;
+}
+
+.card-text {
+    font-size: 14px;
+}
+
+.bg-gray {
+    background-color: rgb(222, 208, 185);
+    width: 100%;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*----Galeria----*/
+
+#gallery img {
+    width: 100%;
+    height: auto;
+    transition: all 0.3s ease;
+}
+
+#gallery .caption {
+    text-align: center;
+}
+
+#gallery h4 {
+    margin-top: 10px;
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+#gallery img:hover {
+    transform: scale(1.1);
+}
+
+/*----Footer----*/
+
+footer {
+    background-color: #4b6382;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+}
+
+footer i {
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
+    padding-top: 10px;
+}
+
+footer i:hover,
+footer a:hover {
+    color: #ded0b9;
+}
+
+footer p {
+    margin-top: 20px;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+/*----Galeria Portfolio----*/
+
+#portfolio-gallery {
+    background-color: rgb(222, 208, 185);
+}
+
+.portfolio-gallery {
+    padding: 20px 10px 10px 10px;
+}
+
+.portfolio-gallery img {
+    width: 100%;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.portfolio-gallery img:hover {
+    transform: scale(1.2);
+}
+
+.ib-caption {
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+/*----Formulário----*/
+
+.formulario {
+    border-radius: 30px;
+    background: linear-gradient(
+        90deg,
+        rgba(222, 208, 185, 1) 25%,
+        rgba(75, 99, 130, 1) 100%
+    );
+    box-shadow: 15px 15px 40px #c7c7c7, -15px -15px 40px #c7c7c7;
+    padding: 30px;
+}
+
+.form-label,
+.form-check-label {
+    font-size: 0.9rem;
+    margin-right: 10px;
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+#form h4 {
+    font-family: MontserratBold;
+    font-size: 20px;
+}
+
+#form h5 {
+    font-family: MontserratBold;
+    font-size: 14px;
+}
+
+#form select {
+    font-size: 0.9em;
+    text-align: center;
+}
+
+#form option {
+    font-family: MontserratRegular;
+    font-size: 0.9em;
+}
+
+#info {
+    font-family: MontserratRegular;
+    font-size: 14px;
+}
+
+#resultado {
+    font-size: 20px;
+    border: none;
+    box-shadow: inset 2px 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+}
+
+/*----Mapa----*/
+#map {
+    height: 600px;
+}
+
+/*----Contactos----*/
+
+#contact-column {
+    padding: 30px 40px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-label {
+    font-family: MontserratBold;
+    font-size: 15px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+#contact-column i {
+    margin-right: 10px;
+}
+
+#contact-column a {
+    text-decoration: none;
+    color: rgb(29, 47, 56);
+}
+
+#contact-column a:hover {
+    color: rgb(3, 112, 187);
+}
+
+#map {
+    height: 400px;
+}
+
+/* ----- Perfis ----- */
+
+.profile-box-label i {
+    margin-right: 10px;
+}
+
+#meetings-table {
+    margin-bottom: 100px;
+}
+
+i.fa-solid.fa-pen-to-square {
+    color: darkgreen;
+}
+
+i.fa-solid.fa-trash-can {
+    color: darkred;
+}
+
+/* ----- Editar Perfis ----- */
+
+.no-edit {
+    pointer-events: none;
+    background-color: #ecf0f1;
+}
+
+#update-btn,
+#back-btn {
+    width: 40%;
+}
+
+#back-btn {
+    background-color: white;
+    border-radius: 15px;
+    color: rgb(3, 112, 187);
+    border: 1px solid rgb(3, 112, 187);
+}
+
+.back-btn:hover {
+    box-shadow: 0px 0px 10px rgba(3, 112, 187, 0.5);
+}
+
+/* ----- Lista Utilizadores ----- */
+
+#users-table {
+    margin-bottom: 50px;
+}
+
+#users-list-back-btn {
+    width: 150px;
+}
+
+/* ----- Lista Marcações ----- */
+
+a.profile-link {
+    text-decoration: none;
+    color: rgb(29, 47, 56);
+}
+
+/* ----- Dashboard Admin ----- */
+
+.dashboard-card {
+    width: 15%;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.dashboard-card a {
+    text-decoration: none;
+}
+
+.dashboard-card img {
+    max-width: 60%;
+    min-width: 80px;
+    height: auto;
+}
+
+.dashboard-card h4 {
+    color: rgb(29, 47, 56);
+    font-family: MontserratBold;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+/* ----- Projetos ----- */
+
+#projects-table img {
+    border: 1px solid gray;
+    max-width: 120px;
+    height: auto;
+}
+
+#project-img {
+    width: 50%;
+    border: 1px solid gray;
+}
+
+/* ----- Noticias ----- */
+
+#news-table img {
+    border: 1px solid gray;
+    max-width: 120px;
+    height: auto;
+}
+
+#news-img {
+    width: 50%;
+    border: 1px solid gray;
+}
+
+/* ----- Responsiveness ----- */
+
+@media (max-width: 768px) {
+    #main-container {
+        padding: 20px;
+    }
+
+    #profile-data {
+        flex-direction: column;
+    }
+
+    .dashboard-card {
+        width: 50%;
+    }
+
+    #users-table,
+    #projects-table,
+    #meetings-table,
+    #news-table {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 975px) {
+    #profile-box {
+        text-align: center;
+    }
+}
