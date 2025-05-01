@@ -291,3 +291,33 @@ function confirmEdit() {
 function confirmDelete() {
     return confirm('Tens a certeza que queres apagar este agendamento?');
 }
+
+// Carregamento dinâmico das Company News através de AJAX
+
+document.addEventListener('DOMContentLoaded', function () {
+    var cards = document.querySelectorAll('.news-card');
+
+    cards.forEach(function (card) {
+        card.addEventListener('click', function () {
+            var newsId = card.getAttribute('data-news-id');
+            loadNewsDetails(newsId);
+        });
+    });
+
+    function loadNewsDetails(newsId) {
+        var newsDetailsContainer = document.getElementById('newsDetails');
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'get_news_details.php?newsId=' + newsId, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    newsDetailsContainer.innerHTML = xhr.responseText;
+                } else {
+                    // Trate possíveis erros aqui
+                }
+            }
+        };
+        xhr.send();
+    }
+});

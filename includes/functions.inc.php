@@ -330,3 +330,116 @@ function deleteMeeting($conn, $meeting_id, $user_id)
         exit();
     }
 }
+
+// PROJECTS FUNCTIONS
+
+function updateProjectSameImage($conn, $titulo, $descricao, $tecnologia, $tempo_gasto, $project_id, $user_id)
+{
+
+    $stmt = $conn->prepare("UPDATE projetos SET titulo = ?, descricao = ?, tecnologia = ?, tempo_gasto = ? WHERE id = ?;");
+    $stmt->bind_param("sssii", $titulo, $descricao, $tecnologia, $tempo_gasto, $project_id);
+
+    if ($stmt->execute()) {
+        $stmt->close();
+        header("location: ../edit_project.php?id=" . $user_id . "&project_id=" . $project_id . "&error=none");
+        exit();
+    } else {
+        $stmt->close();
+        header("location: ../edit_project.php?id=" . $user_id . "&project_id=" . $project_id . "&error=stmtfailed");
+        exit();
+    }
+}
+
+function updateProjectNewImage($conn, $titulo, $descricao, $tecnologia, $tempo_gasto, $project_id, $user_id)
+{
+
+    $stmt = $conn->prepare("UPDATE projetos SET titulo = ?, descricao = ?, tecnologia = ?, tempo_gasto = ? WHERE id = ?;");
+    $stmt->bind_param("sssii", $titulo, $descricao, $tecnologia, $tempo_gasto, $project_id);
+
+    if ($stmt->execute()) {
+        $stmt->close();
+        header("location: ../edit_project.php?id=" . $user_id . "&project_id=" . $project_id . "&error=none");
+        exit();
+    } else {
+        $stmt->close();
+        header("location: ../edit_project.php?id=" . $user_id . "&project_id=" . $project_id . "&error=stmtfailed");
+        exit();
+    }
+}
+
+function deleteProject($conn, $project_id, $user_id, $imageToDelete)
+{
+
+    $deleteImgPath = "../projects_img/" . $imageToDelete;
+
+    $stmt = $conn->prepare("DELETE FROM projetos WHERE id = ?;");
+    $stmt->bind_param("i", $project_id);
+
+    if ($stmt->execute()) {
+        $stmt->close();
+        unlink($deleteImgPath);
+        header("location: ../projects.php?id=" . $user_id . "&error=DeleteSuccess");
+        exit();
+    } else {
+        $stmt->close();
+        header("location: ../projects.php?id=" . $user_id . "&error=DeletingError");
+        exit();
+    }
+}
+
+
+// NEWS FUNCTIONS
+
+function updateNewsSameImage($conn, $titulo, $conteudo, $news_id, $user_id)
+{
+
+    $stmt = $conn->prepare("UPDATE noticias SET titulo = ?, conteudo = ? WHERE id = ?;");
+    $stmt->bind_param("ssi", $titulo, $conteudo, $news_id);
+
+    if ($stmt->execute()) {
+        $stmt->close();
+        header("location: ../edit_news.php?id=" . $user_id . "&news_id=" . $news_id . "&error=none");
+        exit();
+    } else {
+        $stmt->close();
+        header("location: ../edit_news.php?id=" . $user_id . "&news_id=" . $news_id . "&error=stmtfailed");
+        exit();
+    }
+}
+
+function updateNewsNewImage($conn, $titulo, $photoName, $conteudo, $news_id, $user_id)
+{
+
+    $stmt = $conn->prepare("UPDATE noticias SET titulo = ?, conteudo = ? WHERE id = ?;");
+    $stmt->bind_param("sssi", $titulo, $photoName, $conteudo, $news_id);
+
+    if ($stmt->execute()) {
+        $stmt->close();
+        header("location: ../edit_news.php?id=" . $user_id . "&news_id=" . $news_id . "&error=none");
+        exit();
+    } else {
+        $stmt->close();
+        header("location: ../edit_news.php?id=" . $user_id . "&news_id=" . $news_id . "&error=stmtfailed");
+        exit();
+    }
+}
+
+function deleteNews($conn, $news_id, $user_id, $imageToDelete)
+{
+
+    $deleteImgPath = "../news_img/" . $imageToDelete;
+
+    $stmt = $conn->prepare("DELETE FROM noticias WHERE id = ?;");
+    $stmt->bind_param("i", $news_id);
+
+    if ($stmt->execute()) {
+        $stmt->close();
+        unlink($deleteImgPath);
+        header("location: ../news.php?id=" . $user_id . "&error=DeleteSuccess");
+        exit();
+    } else {
+        $stmt->close();
+        header("location: ../news.php?id=" . $user_id . "&error=DeletingError");
+        exit();
+    }
+}
