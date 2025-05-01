@@ -7,8 +7,8 @@ require_once "db.inc.php";
 // Incluir o ficheiro das funções
 require_once "functions.inc.php";
 
-if (!isset($_SESSION["id"]) && $_SESSION["tipo"] != "admin") {
-    header("location: index.php");
+if (!isset($_SESSION["id"]) || $_SESSION["tipo"] != "admin") {
+    header("location: ../index.php");
     exit();
 }
 

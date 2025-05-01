@@ -10,7 +10,7 @@ if (!isset($_SESSION["id"]) && $_SESSION["tipo"] != "admin") {
 }
 
 // Ligação à base de dados
-require_once("db.inc.php");
+require_once("../includes/db.inc.php");
 
 // Verifica se os dados provêm de um POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -23,8 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Upload da imagem
     $projectName = $titulo;
-    $photoName = $_FILES["image"]["name"];
-    $photoTmp = $_FILES["image"]["tmp_name"];
+    $photoName = $_FILES["imagem"]["name"];
+    $photoTmp = $_FILES["imagem"]["tmp_name"];
     $photoPath = "../projects_img/" . $photoName;
 
     // Verifica a extensão do arquivo

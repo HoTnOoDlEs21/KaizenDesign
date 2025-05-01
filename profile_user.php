@@ -169,7 +169,7 @@ $result = $stmt->get_result();
                         </div>
                     </div>
 
-                    <div id="orders-box" class="col-lg-8">
+                    <div id=" orders-box" class="col-lg-8">
                         <div class="mb-5">
                             <h4 class="profile-box-label mb-5">Agendamentos</h4>
                             <?php

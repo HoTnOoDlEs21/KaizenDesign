@@ -1,8 +1,8 @@
 <?php
-//Liga à base de dados
-include 'conexao.php';
 //Inclui o link da raiz do projeto
 include 'geral.php';
+// Ligação à base de dados
+require_once("includes/db.inc.php");
 ?>
 
 <!DOCTYPE html>
@@ -39,8 +39,6 @@ include 'geral.php';
     <!----Stylesheet CSS---->
     <link rel="stylesheet" href="css/style.css?v=1.0" />
 
-    <!----jQuery---->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -119,95 +117,29 @@ include 'geral.php';
         <section id="portfolio-gallery" class="portfolio-gallery">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 col-sm-12">
-                        <a>
-                            <img
-                                src="images/booking1.jpg"
-                                data-imagebox="gallery"
-                                data-imagebox-src="images/booking1.jpg"
-                                data-imagebox-caption="O Booking.com é uma plataforma global de reservas online que conecta viajantes com uma ampla gama de opções de hospedagem, desde hotéis e resorts até apartamentos, pousadas e acomodações únicas." />
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <a><img
-                                src="images/bookamover.jpg"
-                                data-imagebox="gallery"
-                                data-imagebox-src="images/bookamover.jpg"
-                                data-imagebox-caption="O Bookamover.com é uma plataforma online que facilita a reserva de serviços de mudanças, conectando clientes a empresas de mudanças profissionais." /></a>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <a><img
-                                src="images/zendesk.jpg"
-                                data-imagebox="gallery"
-                                data-imagebox-src="images/zendesk.jpg"
-                                data-imagebox-caption="O Zendesk é uma plataforma de software focada em melhorar a experiência do cliente e o suporte ao cliente para empresas." /></a>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <a><img
-                                src="images/mint-homepage-design.jpg"
-                                data-imagebox="gallery"
-                                data-imagebox-src="images/mint-homepage-design.jpg"
-                                data-imagebox-caption="O Mint é uma plataforma gratuita de gerenciamento financeiro pessoal desenvolvida pela Intuit. É amplamente utilizada para ajudar indivíduos e famílias a monitorar, organizar e melhorar suas finanças pessoais." /></a>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <a><img
-                                src="images/website-freshbooks.jpg"
-                                data-imagebox="gallery"
-                                data-imagebox-src="images/website-freshbooks.jpg"
-                                data-imagebox-caption="O FreshBooks é um software de contabilidade baseado na nuvem, projetado para simplificar a gestão financeira de pequenas empresas e freelancers." /></a>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <a><img
-                                src="images/superiorfireplaces.jpg"
-                                data-imagebox="gallery"
-                                data-imagebox-src="images/superiorfireplaces.jpg"
-                                data-imagebox-caption="A Superior Fireplaces é uma marca líder no setor de lareiras, oferecendo uma ampla gama de produtos de alta qualidade para aquecer e embelezar residências." /></a>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <a><img
-                                src="images/Rippaverse-scaled.jpg"
-                                data-imagebox="gallery"
-                                data-imagebox-src="images/Rippaverse-scaled.jpg"
-                                data-imagebox-caption="A Rippaverse é uma editora independente de quadrinhos fundada por Eric D. July, com o objetivo de revitalizar a cultura dos quadrinhos americanos, oferecendo histórias envolventes e personagens cativantes." /></a>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <a><img
-                                src="images/wiz.io-1-Z1N4aFg.jpg"
-                                data-imagebox="gallery"
-                                data-imagebox-src="images/wiz.io-1-Z1N4aFg.jpg"
-                                data-imagebox-caption="A Wiz é uma startup americana especializada em segurança de computação em nuvem." /></a>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <a><img
-                                src="images/portfolio2a.jpg"
-                                data-imagebox="gallery"
-                                data-imagebox-src="images/portfolio2a.jpg"
-                                data-imagebox-caption="A CloudPassage é uma empresa especializada em segurança e conformidade para ambientes de computação em nuvem, oferecendo soluções que abrangem servidores, containers e recursos de Infraestrutura como Serviço (IaaS) em ambientes públicos, privados, híbridos e multi-nuvem." /></a>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <a><img
-                                src="images/portfolio1a.jpg"
-                                data-imagebox="gallery"
-                                data-imagebox-src="images/portfolio1a.jpg"
-                                data-imagebox-caption="O Prezi é uma plataforma inovadora de design de apresentações que se destaca por seu formato não linear, permitindo a criação de apresentações dinâmicas e interativas." /></a>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <a><img
-                                src="images/portfolio3a.jpg"
-                                data-imagebox="gallery"
-                                data-imagebox-src="images/portfolio3a.jpg"
-                                data-imagebox-caption="O Airbnb é uma plataforma online de hospedagem que conecta viajantes a anfitriões que oferecem acomodações únicas em mais de 220 países e regiões." /></a>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <a><img
-                                src="images/website-gleamin.jpg"
-                                data-imagebox="gallery"
-                                data-imagebox-src="images/website-gleamin.jpg"
-                                data-imagebox-caption="A Gleamin é uma marca de cuidados com a pele que se destaca por oferecer soluções naturais e eficazes para tratar hiperpigmentação, manchas escuras e promover uma pele radiante." /></a>
-                    </div>
+                    <?php
+
+                    // Consulta SQL para obter os dados dos projetos
+                    $sql = "SELECT id, titulo, imagem, descricao, tecnologia, tempo_gasto FROM projetos";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+
+                            // Criação de cada imagem dos projetos na página
+                            echo "<div class='project-card col-md-4 col-sm-12'><a><img src='projects_img/" . $row["imagem"] . "' data-imagebox='gallery' data-imagebox-src='projects_img/" . $row["imagem"] . "' data-imagebox-caption='<p>" . strtoupper($row["titulo"]) . "<br/>" . $row["descricao"] . "<br/>" . $row["tecnologia"] . "<br/>Tempo de conclusão: " . $row["tempo_gasto"] . " meses.</p>'></a></div>";
+                        }
+                    } else {
+                        echo "<div><p>Nenhum projeto encontrado.</p></div>";
+                    }
+
+                    $conn->close();
+
+                    ?>
                 </div>
             </div>
         </section>
+
         <div class="text-center mt-4">
             <a href="orcamento.php" target="_self">
                 <button type="button" class="btn mt-3">
@@ -228,8 +160,16 @@ include 'geral.php';
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
     <!----ImageBox JavaScript---->
     <script src="https://cdn.jsdelivr.net/gh/tobiasroeder/imagebox@1.3.1/dist/imagebox.min.js"></script>
+    <script>
+        imagebox.options({
+            htmlCaption: true
+        });
+    </script>
 </body>
 
 </html>

@@ -188,28 +188,28 @@ $conn->close();
 
                             <div class="form-group mt-4">
                                 <label for="title">Título:</label>
-                                <input type="text" class="form-control" name="title" required value="<?= $project->getTitle(); ?>">
+                                <input type="text" class="form-control" name="titulo" required value="<?= $project->getTitle(); ?>">
                                 <input type="hidden" class="form-control" id="actualImg" name="actualImg" value="<?= $project->getImage(); ?>">
                             </div>
 
                             <div class="form-group mt-4">
                                 <label for="image">Nova imagem (opcional):</label>
-                                <input type="file" class="form-control-file" name="image" accept="image/*">
+                                <input type="file" class="form-control-file" name="imagem" accept="image/*">
                             </div>
 
                             <div class="form-group mt-4">
                                 <label for="description">Descrição:</label>
-                                <textarea class="form-control" name="description" rows="4" required><?= $project->getDescription(); ?></textarea>
+                                <textarea class="form-control" name="descricao" rows="4" required><?= $project->getDescription(); ?></textarea>
                             </div>
 
                             <div class="form-group mt-4">
                                 <label for="technology">Tecnologia:</label>
-                                <input type="text" class="form-control" name="technology" required value="<?= $project->getTechnology(); ?>">
+                                <input type="text" class="form-control" name="tecnologia" required value="<?= $project->getTechnology(); ?>">
                             </div>
 
                             <div class="form-group mt-4 mb-4">
                                 <label for="timeSpent">Tempo de conclusão (em meses):</label>
-                                <input type="text" class="form-control" name="timeSpent" required value="<?= $project->getTimeSpent(); ?>">
+                                <input type="text" class="form-control" name="tempo_gasto" required value="<?= $project->getTimeSpent(); ?>">
                             </div>
 
                             <div class="form-group mt-4 mb-4 d-flex justify-content-around">

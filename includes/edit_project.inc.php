@@ -19,13 +19,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Capturar os dados do formulário
     $user_id = $_POST["id"];
     $project_id = $_POST["project_id"];
+    $imagem_atual = $_POST["actualImg"];
     $titulo = mysqli_real_escape_string($conn, $_POST["titulo"]);
     $descricao = mysqli_real_escape_string($conn, $_POST["descricao"]);
     $tecnologia = mysqli_real_escape_string($conn, $_POST["tecnologia"]);
     $tempo_gasto = mysqli_real_escape_string($conn, $_POST["tempo_gasto"]);
 
     // Se não foi escolhida uma nova imagem para o projeto
-    if ($_FILES["image"]["size"] === 0) {
+    if ($_FILES["imagem"]["size"] === 0) {
 
         // Altera o projeto na base de dados
         updateProjectSameImage($conn, $titulo, $descricao, $tecnologia, $tempo_gasto, $project_id, $user_id);
@@ -34,9 +35,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
 
         // Upload da imagem
-        $projectName = $title;
-        $photoName = $_FILES["image"]["name"];
-        $photoTmp = $_FILES["image"]["tmp_name"];
+        $projectName = $titulo;
+        $photoName = $_FILES["imagem"]["name"];
+        $photoTmp = $_FILES["imagem"]["tmp_name"];
         $photoPath = "../projects_img/" . $photoName;
 
         // Verifica a extensão do arquivo

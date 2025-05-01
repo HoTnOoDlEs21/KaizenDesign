@@ -137,24 +137,6 @@ $stmt->close();
                     <hr>
                 </div>
 
-                <?php
-                if (isset($_GET["error"])) {
-
-                    // Sistema de mensagens
-                    if ($_GET["error"]  == "noneInsertProjectSuccess") {
-                        echo "<div class='alert alert-success text-center col-6 mx-auto mb-5' role='alert'>Projeto adicionado com sucesso!</div>";
-                    } else if ($_GET["error"]  == "insertfailed") {
-                        echo "<div class='alert alert-danger text-center col-6 mx-auto mb-5' role='alert'>Erro ao adicionar o projeto.</div>";
-                    } else if ($_GET["error"]  == "invalidformat") {
-                        echo "<div class='alert alert-danger text-center col-6 mx-auto mb-5' role='alert'>Formato de arquivo não permitido. Apenas arquivos JPG, JPEG e PNG são aceites.</div>";
-                    } else if ($_GET["error"]  == "DeleteSuccess") {
-                        echo "<div class='alert alert-success text-center col-6 mx-auto mb-5' role='alert'>Projeto eliminado com sucesso!</div>";
-                    } else if ($_GET["error"]  == "DeletingError") {
-                        echo "<div class='alert alert-danger text-center col-6 mx-auto mb-5' role='alert'>Não foi possível eliminar o projeto!</div>";
-                    }
-                }
-                ?>
-
                 <div class="row">
                     <div id="projects-box" class="col col-xl-10 mx-auto">
                         <h4 class="projects-box-label mb-4">Projetos realizados</h4>
@@ -189,7 +171,7 @@ $stmt->close();
                                             echo "<td class='d-table-cell py-3'>" . $row["tecnologia"] . "</td>";
                                             echo "<td class='d-none d-lg-table-cell py-3'>" . $row["tempo_gasto"] . " meses</td>";
                                             echo "<td class='d-table-cell text-center py-3'><a href='edit_project.php?id=" . $user_id . "&project_id=" . $row["id"] . "'><i class='fa-solid fa-pen-to-square'></i></a></td>";
-                                            echo "<td class='d-table-cell text-center py-3'><a href='includes/delete_project.inc.php?id=" . $user_id . "&project_id=" . $row["id"] . "&image=" . $row["imagem"] . "' type='button' href=''><i class='fa-solid fa-trash-can'></i></a></td>";
+                                            echo "<td class='text-center py-3'><a href='includes/delete_project.inc.php?id=$user_id&project_id=" . $row["id"] . "&image=" . $row["imagem"] . "' onclick='return confirm(\"Tem a certeza que deseja eliminar este projeto?\")'><i class='fa-solid fa-trash-can'></i></a></td>";
                                             echo "</tr>";
                                         }
                                     } else {
@@ -209,6 +191,24 @@ $stmt->close();
                         </div>
 
                         <hr>
+
+                        <?php
+                        if (isset($_GET["error"])) {
+
+                            // Sistema de mensagens
+                            if ($_GET["error"]  == "noneInsertProjectSuccess") {
+                                echo "<div class='alert alert-success text-center col-6 mx-auto mb-5' role='alert'>Projeto adicionado com sucesso!</div>";
+                            } else if ($_GET["error"]  == "insertfailed") {
+                                echo "<div class='alert alert-danger text-center col-6 mx-auto mb-5' role='alert'>Erro ao adicionar o projeto.</div>";
+                            } else if ($_GET["error"]  == "invalidformat") {
+                                echo "<div class='alert alert-danger text-center col-6 mx-auto mb-5' role='alert'>Formato de arquivo não permitido. Apenas arquivos JPG, JPEG e PNG são aceites.</div>";
+                            } else if ($_GET["error"]  == "DeleteSuccess") {
+                                echo "<div class='alert alert-success text-center col-6 mx-auto mb-5' role='alert'>Projeto eliminado com sucesso!</div>";
+                            } else if ($_GET["error"]  == "DeletingError") {
+                                echo "<div class='alert alert-danger text-center col-6 mx-auto mb-5' role='alert'>Não foi possível eliminar o projeto!</div>";
+                            }
+                        }
+                        ?>
 
                         <!-- Formulário de Inserção de Projetos -->
                         <div class="row mt-5">

@@ -350,11 +350,11 @@ function updateProjectSameImage($conn, $titulo, $descricao, $tecnologia, $tempo_
     }
 }
 
-function updateProjectNewImage($conn, $titulo, $descricao, $tecnologia, $tempo_gasto, $project_id, $user_id)
+function updateProjectNewImage($conn, $titulo, $photoName, $descricao, $tecnologia, $tempo_gasto, $project_id, $user_id)
 {
 
-    $stmt = $conn->prepare("UPDATE projetos SET titulo = ?, descricao = ?, tecnologia = ?, tempo_gasto = ? WHERE id = ?;");
-    $stmt->bind_param("sssii", $titulo, $descricao, $tecnologia, $tempo_gasto, $project_id);
+    $stmt = $conn->prepare("UPDATE projetos SET titulo = ?, imagem = ?, descricao = ?, tecnologia = ?, tempo_gasto = ? WHERE id = ?;");
+    $stmt->bind_param("ssssii", $titulo, $photoName, $descricao, $tecnologia, $tempo_gasto, $project_id);
 
     if ($stmt->execute()) {
         $stmt->close();
