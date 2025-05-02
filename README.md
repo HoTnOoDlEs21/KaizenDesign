@@ -1,4 +1,4 @@
-# 🖥️ Projeto Final PHP – KaizenDesign
+# 🖥️ Caso Prático PHP – KaizenDesign
 
 Este projeto foi desenvolvido como parte final do curso avançado de desenvolvimento web, com o objetivo de consolidar conhecimentos em **PHP**, **MySQL**, **HTML/CSS**, **JavaScript** e boas práticas de estruturação e gestão de conteúdos dinâmicos.
 
