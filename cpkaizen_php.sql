@@ -34,7 +34,7 @@ CREATE TABLE `marcacoes` (
   `data` date NOT NULL,
   `hora` time NOT NULL,
   `observacoes` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `marcacoes`
@@ -59,7 +59,7 @@ CREATE TABLE `noticias` (
   `conteudo` text,
   `imagem` varchar(255) DEFAULT NULL,
   `data_publicacao` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `noticias`
@@ -85,7 +85,7 @@ CREATE TABLE `projetos` (
   `descricao` text,
   `tempo_gasto` varchar(100) DEFAULT NULL,
   `tecnologia` varchar(150) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `projetos`
@@ -120,7 +120,7 @@ CREATE TABLE `utilizadores` (
   `senha` varchar(255) NOT NULL,
   `telefone` varchar(20) DEFAULT NULL,
   `tipo` enum('admin','cliente') DEFAULT 'cliente'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `utilizadores`

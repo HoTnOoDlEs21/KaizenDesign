@@ -2,7 +2,7 @@
 //Dados da ligação
 $servidor = "localhost";
 $utilizador = "root";
-$senha = "webdevelop";
+$senha = "";
 $base_dados = "CPkaizen_php";
 
 //Criar a ligação

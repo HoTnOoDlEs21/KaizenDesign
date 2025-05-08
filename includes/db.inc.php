@@ -4,7 +4,7 @@
 
 $serverName = "localhost";
 $dBUsername = "root";
-$dBPassword = "webdevelop";
+$dBPassword = "";
 $dBName = "cpkaizen_php";
 
 $conn = new mysqli($serverName, $dBUsername, $dBPassword, $dBName);

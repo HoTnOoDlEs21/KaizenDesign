@@ -180,6 +180,7 @@ $stmt->close();
                                     // Consulta SQL para obter os dados da noticia
                                     $sql = "SELECT id, titulo, conteudo, imagem, data_publicacao FROM noticias ORDER BY data_publicacao DESC;";
                                     $result = $conn->query($sql);
+                                    $imageParam = isset($row["image"]) ? $row["image"] : '';
 
                                     if ($result->num_rows > 0) {
                                         while ($row = $result->fetch_assoc()) {
@@ -189,7 +190,7 @@ $stmt->close();
                                             echo "<td class='d-table-cell py-3'>" . $row["conteudo"] . "</td>";
                                             echo "<td class='d-table-cell py-3'>" . $row["data_publicacao"] . "</td>";
                                             echo "<td class='d-table-cell text-center py-3'><a href='edit_news.php?id=" . $user_id . "&news_id=" . $row["id"] . "'><i class='fa-solid fa-pen-to-square'></i></a></td>";
-                                            echo "<td class='d-table-cell text-center py-3'><a href='includes/delete_news.inc.php?id=" . $user_id . "&news_id=" . $row["id"] . "&image=" . $row["image"] . "'onclick=\"return confirm('Tens a certeza que queres apagar esta notícia? Esta ação é irreversível!');\"><i class='fa-solid fa-trash-can'></i></a></td>";
+                                            echo "<td class='d-table-cell text-center py-3'><a href='includes/delete_news.inc.php?id=" . $user_id . "&news_id=" . $row["id"] . "&image=" . $imageParam . "' onclick=\"return confirm('Tens a certeza que queres apagar esta notícia? Esta ação é irreversível!');\"><i class='fa-solid fa-trash-can'></i></a></td>";
                                             echo "</tr>";
                                         }
                                     } else {
